@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <h1>Agent Search</h1>
+
+  
+
+  <form onsubmit="" role="form">
+    <h2>Search By Licence</h2>
+
+    <p>Licence Number: <input type="text" name="apname" id="licencenum" value=""></p>
+    <br>
+    <button type="button" onclick="search_agent()">Search</button>
+    <br>
+    <div class="searchResult">
+      <p id="searchResultLicence">Licence Number: -----</p>
+      <p id="searchResultName">Agent Name: -----</p>
+    </div>
+    <br>
+   
+    
+
+  </form>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  
+  <script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script>
+  <script src="vendor/@truffle/contract/dist/truffle-contract.js"></script>
+  <script src="./contractApp.js"></script>
+
+
+</body>
+
+</html>
+<script>
+  $(document).ready(function () {
+     appform_init();
+    show_all_agents();
+  });
+</script>

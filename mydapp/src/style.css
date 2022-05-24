@@ -1,0 +1,52 @@
+* {
+	margin: 2px;
+	padding: 2px;
+	
+
+}
+html,body{height:100%;}
+
+h1 {
+    background-color: #F1F1F1;
+    text-align: center;
+    padding: 20px;
+  }
+
+body {
+    
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
+    line-height: 1.5em;
+	z-index:-1;
+	min-height: 100%;
+}
+
+#statusbar {
+    text-align: right;
+    padding: 10px;
+    margin: 2px;
+}
+
+#datebar {
+    text-align: right;
+
+}
+
+h2{
+    
+    border-style: groove;
+}
+
+input{
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+
+
+.nextAction {
+    column-count: 2;
+}
+
+
+

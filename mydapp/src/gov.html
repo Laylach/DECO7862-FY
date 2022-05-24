@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <h1>Application Approval</h1>
+
+  <div>
+    <p id="statusbar">Status: New</p>
+    <p id="datebar">Date of submission: </p>
+  </div>
+
+  <form onsubmit="" role="form">
+    <h2>Application Information</h2>
+
+    <h3>Licence details</h3>
+    <p>Applicant Name: <input type="text" name="apname" id="setApplicantName" required="required" value="" disabled=true></p>
+
+    <p>
+      Property occupations:<br>
+    <div class="checkboxdisplay" >
+      <input class="cbd" type="checkbox" name="propOcc1" value="propOcc1" disabled=true>Real estate agent
+      <input class="cbd" type="checkbox" name="propOcc2" value="propOcc2" disabled=true>Resident letting agent
+      <input class="cbd" type="checkbox" name="propOcc3" value="propOcc3" disabled=true>Auctioneer (real property)
+      <br>
+      <input class="cbd" type="checkbox" name="propOcc4" value="propOcc4" disabled=true>Limited real estate agent (affordable housing)
+      <input class="cbd" type="checkbox" name="propOcc5" value="propOcc5" disabled=true>Limited real estate agent (business letting)
+    </div>
+    </p>
+
+    <p>
+      Motor dealer and chattel auctioneer occupations:<br>
+    <div class="checkboxdisplay">
+      <input class="cbd" type="checkbox" name="motorDealerOcc1" value="motorDealerOcc1" disabled=true>Motor dealer
+      <input class="cbd" type="checkbox" name="motorDealerOcc2" value="motorDealerOcc2" disabled=true>Chattel auctioneer
+      <br>
+      <input class="cbd" type="checkbox" name="motorDealerOcc3" value="motorDealerOcc3" disabled=true>Motor dealer (wrecker)
+      <input class="cbd" type="checkbox" name="motorDealerOcc4" value="motorDealerOcc4" disabled=true>Motor dealer (broker)
+    </div>
+    </p>
+
+    <p>
+      Debt Collector occupations:<br>
+    <div class="checkboxdisplay">
+      <input class="cbd" type="checkbox" name="fieldAgent" value="fieldAgent" disabled=true>Field agent
+    </div>
+    </p>
+
+    <p>Licence Term:
+      <select onchange="calculate_fee()" name="licenceterm" id="selectLicenceTerm" disabled=true>
+        <option value="1year">1 Year</option>
+        <option value="3year">3 Years</option>
+      </select>
+    </p>
+
+    <p>Licence Account: <input type="text" name="licAccount" id="setLicenceAccount" value="" disabled=true></p>
+
+    <h3>Applicant details</h3>
+    <p>Date of Birth: <input type="text" name="db" id="setBirthdate" value="" disabled=true></p>
+    <p>Address: <input type="text" name="padd" id="setPropertyAddress" value="" disabled=true></p>
+    <p>State: <input type="text" name="pstate" id="setPropertyState" value="" disabled=true></p>
+    <p>Country: <input type="text" name="pcountry" id="setPropertyCountry" value="" disabled=true></p>
+
+    <p>Driver licence numbe: <input type="text" name="driverLicence" id="setDriverLicence" value="" disabled=true></p>
+    <p>Passport number: <input type="text" name="passport" id="setPassport" value="" disabled=true></p>
+    <p>Passport country: <input type="text" name="passportcountry" id="setPassportCountry" value="" disabled=true></p>
+    <p>Passport type:
+    <div>
+      <input type="checkbox" name="passporttype1" id="setPassportType1" value="Government" disabled=true>Government
+      <input type="checkbox" name="passporttype2" id="setPassportType2" value="Private" disabled=true>Private
+      <input type="checkbox" name="passporttype3" id="setPassportType3" value="UN refugee" disabled=true>UN refugee
+    </div>
+    </p>
+    <p>Are you an Australian citizen?
+    <div>
+      <input type="radio" name="citizen1" id="setCitizen1" value="yes" disabled=true>Yes
+      <input type="radio" name="citizen2" id="setCitizen2" value="no" disabled=true>No
+    </div>
+    </p>
+
+    <h3>Contact details</h3>
+    <p>Contact Number: <input type="snumber" name="contactnum" id="setConNumber" value="" disabled=true></p>
+    <p>Email Address: <input type="text" name="contactemail" id="setConEmail" value="" disabled=true></p>
+    <br>
+
+    <h3>Trading particulars</h3>
+    <p>Trading particulars:
+    <div>
+      <input type="checkbox" name="tradingParticular1" id="tradingParticular1" value="tradingParticular1" disabled=true>Sole Trader
+      <input type="checkbox" name="tradingParticular2" id="tradingParticular2" value="tradingParticular2" disabled=true>Working Director
+      <input type="checkbox" name="tradingParticular3" id="tradingParticular3" value="tradingParticular3" disabled=true>Partnership
+      <input type="checkbox" name="tradingParticular4" id="tradingParticular4" value="tradingParticular4" disabled=true>Employed
+      Licensee
+    </div>
+    </p>
+    <br>
+
+    <h3>Places of business</h3>
+    <p>Registered National Business Name (if applicable): <input type="text" name="businessName" id="businessName"
+        value="" disabled=true></p>
+    <p>State: <input type="text" name="businessState" id="businessState" value="" disabled=true></p>
+    <p>Postcode: <input type="snumber" name="businessPost" id="businessPost" value="" disabled=true></p>
+    <p>Name of person in charge: <input type="text" name="businessPerson" id="businessPerson" value="" disabled=true></p>
+    <p>Licence number of person in charge: <input type="text" name="businessLicence" id="businessLicence" value="" disabled=true></p>
+    <br>
+
+    <h3>Corporation</h3>
+    <p>Name of corporation: <input type="text" name="corporationName" id="corporationName" value="" disabled=true></p>
+    <p>ACN: <input type="text" name="corporationACN" id="corporationACN" value="" disabled=true></p>
+    <p>Corporation licence number: <input type="text" name="corporationLicence" id="corporationLicenceS" value="" disabled=true></p>
+    <br>
+
+    <h3>Partnership details</h3>
+    <p>Partner 1 name: <input type="text" name="partnerName1" id="partnerName1" value="" disabled=true></p>
+    <p>ACN: <input type="text" name="partnerACN1" id="partnerACN1" value="" disabled=true></p>
+    <p>Partner licence number: <input type="text" name="partnerLicence1" id="partnerLicence1" value="" disabled=true></p>
+    <br>
+    <p>Partner 2 name: <input type="text" name="partnerName2" id="partnerName2" value="" disabled=true></p>
+    <p>ACN: <input type="text" name="partnerACN2" id="partnerACN2" value="" disabled=true></p>
+    <p>Partner licence number: <input type="text" name="partnerLicence2" id="partnerLicence2" value="" disabled=true></p>
+    <br>
+
+
+    <h3>Employed licensee</h3>
+    <p>Full name of employer: <input type="text" name="employerName" id="employerName" value="" disabled=true></p>
+    <p>Employer licence number: <input type="text" name="employerLicence" id="employerLicence" value="" disabled=true></p>
+    <p>Employment address: <input type="text" name="employmentAddress" id="employmentAddress" value="" disabled=true></p>
+    <br>
+
+
+    <h2>Check List</h2>
+    <p>Have you</p>
+    <form action="form_action.asp" method="get">
+      <p>1. Been found guilty of an offence (excluding traffic or misdemeanour offences)
+        in Queensland or elsewhere, within the last five years? </p>
+      <label><input name="1q" type="radio" value="yes" id="1qY" disabled=true/>No </label>
+      <label><input name="1q" type="radio" value="no" id="1qN" disabled=true/>Yes </label>
+      <p>2. Been convicted of an offence and/or disqualified from holding a licence or
+        registration certificate under a relevant Act** or the Agents Financial
+        Administration Act 2014?</p>
+      <label><input name="2q" type="radio" value="yes" id="2qY"  disabled=true/>No </label>
+      <label><input name="2q" type="radio" value="no" id="2qN"  disabled=true/>Yes </label>
+      <p>3. Received an adverse order under the Property Occupations Act 2014,
+        the Motor Dealers and Chattel Auctioneers Act 2014, the Debt Collectors
+        (Field Agents and Collection Agents) Act 2014, or the repealed
+        Property Agents and Motor Dealers Act 2000 from QCAT or the District
+        court in the last five years? </p>
+      <label><input name="3q" type="radio" value="yes" id="3qY" disabled=true/>No </label>
+      <label><input name="3q" type="radio" value="no" id="3qN" disabled=true/>Yes </label>
+      <p>4. Been (or are) insolvent under administration (this includes entering into
+        bankruptcy or a Personal Insolvency Agreement under Part X of the
+        Bankruptcy Act 1966 or is a party as a debtor to a debt agreement under
+        Part IX of the Bankruptcy Act 1966)?</p>
+      <label><input name="4q" type="radio" value="yes" id="4qY" disabled=true/>No </label>
+      <label><input name="4q" type="radio" value="no" id="4qN" disabled=true/>Yes </label>
+      <p>5. Been an executive officer* of a corporation licensed under a relevant Act**
+        that has been placed into receivership or liquidation?</p>
+      <label><input name="5q" type="radio" value="yes" id="5qY" disabled=true/>No </label>
+      <label><input name="5q" type="radio" value="no" id="5qN" disabled=true/>Yes </label>
+      <p>6. Been named in the register of persons disqualified from managing
+        corporations under the Corporations Act? </p>
+      <label><input name="6q" type="radio" value="yes" id="6qY" disabled=true/>No </label>
+      <label><input name="6q" type="radio" value="no" id="6qN" disabled=true/>Yes </label>
+      <p>7. Ever had a licence or registration certificate refused, suspended or
+        cancelled under a relevant Act**? </p>
+      <label><input name="7q" type="radio" value="yes" id="7qY" disabled=true/>No </label>
+      <label><input name="7q" type="radio" value="no" id="7qN" disabled=true/>Yes </label>
+      <p>8. Had an amount paid from the Claim Fund including the Funds established
+        under the repealed Property Agents and Motor Dealers Act 2000 or the
+        repealed Auctioneers and Agents Act 1971, because of an action or omission
+        that gave rise to a claim? </p>
+      <label><input name="8q" type="radio" value="yes" id="8qY" disabled=true/>No </label>
+      <label><input name="8q" type="radio" value="no" id="8qN" disabled=true/>Yes </label>
+
+      <p>9. Finished the required courses? </p>
+      <label><input name="9q" type="radio" value="yes" id="9qY" disabled=true/>Yes </label>
+      <label><input name="9q" type="radio" value="no" id="9qN" disabled=true/>No </label>
+    </form>
+
+    <br>
+
+    <h2>Declaration</h2>
+    <p>
+      In submitting this application, I declare I have the consent of all persons relating to this application being
+      subject
+      to a national criminal history check by the Queensland Police Service (QPS) and
+      for QPS and other Australian police services to disclose criminal history information and any impending charges to
+      the
+      Office of Fair Trading.
+    </p>
+    <p>
+      I understand any disclosure will be subject to applicable Commonwealth, state or territory legislation and/or police
+      policy. Enquiries may also be made with the Department of Home Affairs to verify eligibility to work in Australia.
+      In
+      other instances, information on this form can be disclosed without your consent where authorised or required by law.
+    </p>
+    <p>
+      I declare the answers I have given on this form and attachments are true and correct in every detail.
+    </p>
+    <p>
+      I have read and agree to the terms stated above.
+    </p>
+    <input class="cbd" type="checkbox" name="declaration" value="declaration" disabled=true>Agree
+    <br>
+
+    <h2>Fees and Payment</h2>
+    <p>This section is auto-calculated </p>
+    <p>Amount Paid: <input type="text" name="amount" id="setAmount" value="1508.60" disabled=true></p>
+
+    <br>
+    <div class="governOnly">
+      <h2>Government Check</h2>
+      <p>This section is filled by the Government </p>
+      <p>Documentation
+        <label><input name="docCheck" type="radio" value="yes" id="docCheckY">Yes </label>
+        <label><input name="docCheck" type="radio" value="no" id="docCheckN" />No </label>
+      </p>
+      <p>Criminal Check
+        <label><input name="crimCheck" type="radio" value="yes" id="crimCheckY"/>Pass </label>
+        <label><input name="crimCheck" type="radio" value="no" id="crimCheckN"/>Fail</label>
+      </p>
+      <p>Training Courses
+        <label><input name="courseCheck" type="radio" value="yes" id="courseCheckY"/>Pass </label>
+        <label><input name="courseCheck" type="radio" value="no" id="courseCheckN" />Fail </label>
+      </p>
+      <br>
+    </div>
+
+    <button type="button" onclick="validate_form()">Validiation Complete</button>
+    <br>
+    <button type="button" onclick="show_case_status()">Check Case Status</button>
+    <br>
+    <div class="nextAction">
+      <p id="next_action">Next action: -----</p>
+      <p id="amount_charge">Amount to be charged: -----</p>
+      <p id="amount_refund">Amount to be refund: -----</p>
+      <p id="checklist_result">Check List: -----</p>
+      <p id="criminal_result">Criminal Check: -----</p>
+      <p id="courses_result">Required Courses: -----</p>
+    </div>
+
+    <br>
+    <button type="button" onclick="set_payment()">Set Payment</button>
+    <div style="display:none" id="resub_button" >
+      <button type="button" onclick="set_resubmit()">Allow Resubmission</button>
+    </div>
+  </form>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  
+  <script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script>
+  <script src="vendor/@truffle/contract/dist/truffle-contract.js"></script>
+  <script src="./contractApp.js"></script>
+  <script src="./appgov.js"></script>
+
+</body>
+
+</html>
